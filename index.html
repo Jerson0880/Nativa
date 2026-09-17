@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+	<meta charset="utf-8"/>
+	<title>NATIVA - Productos Naturales</title>
+	<meta name="description" content="Esta es una pagina web taller con estilos css3">
+	<link rel="stylesheet" href="css/estilo.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<section id="contenedor">
+
+<header>
+<br/>
+<!-- Logo NATIVA -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="160" height="60" class="logo-nativa">
+  <path d="M25 45 C15 25, 35 10, 43 22 C51 34, 33 52, 25 45 Z" fill="#2D5A27"/>
+  <path d="M20 40 C28 28, 40 20, 36 36 Z" fill="#8C5A32"/>
+  <text x="60" y="42" font-family="'Montserrat', sans-serif" font-size="26" font-weight="700" fill="#2D5A27" letter-spacing="2">NATIVA</text>
+</svg>
+
+<nav>
+	<ul>
+		<li><a href="#servicios">Productos</a></li>
+		<li><a href="#nosotros">Nosotros</a></li>
+		<li><a href="#contacto">Contacto</a></li>
+		<li>
+			<button class="btn-carrito-nav" onclick="toggleCarrito()">
+				<i class="fa fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)
+			</button>
+		</li>
+	</ul>
+</nav>
+
+</header>
+
+<section id="banner">
+	<article id="promo1">
+		<h1>Conecta con<br/> la Naturaleza.</h1>
+		<a href="#servicios">Ver Productos</a>
+		<img src="img\photo.avif" alt="Banner Nativa">
+	</article>
+</section>
+
+<!-- Sección Nosotros -->
+<section id="nosotros" style="padding: 2.5rem 2rem; background-color: #F4F6F3; text-align: center; border-bottom: 1px solid #E0E0E0;">
+	<h2 style="color: #2D5A27; margin-bottom: 1rem;">Sobre Nosotros</h2>
+	<p style="max-width: 800px; margin: 0 auto; color: #1F291E; font-size: 1rem; line-height: 1.6;">
+		En <strong>NATIVA</strong> nos apasiona el bienestar personal a través de ingredientes 100% orgánicos y renovables. Nos dedicamos a formular productos cosméticos y de cuidado personal respetando el medio ambiente y garantizando la máxima pureza para tu piel.
+	</p>
+</section>
+
+<!-- Catálogo de Productos -->
+<section id="servicios">
+	<article id="servicio1">
+		<img src="img\jabon.avif" alt="Jabón Artesanal" class="img-producto">
+		<h2>Jabón Artesanal</h2>
+		<p>Elaborado con aceites esenciales, caléndula y componentes 100% orgánicos ideales para el cuidado de pieles sensibles.</p>
+		<p class="precio-prod">$15.000 COP</p>
+		<div class="selector-cantidad">
+			<label for="cant-jabon">Cantidad:</label>
+			<input type="number" id="cant-jabon" value="1" min="1" max="99">
+		</div>
+		<a href="javascript:void(0)" onclick="agregarAlCarrito('Jabón Artesanal', 15000, 'cant-jabon')">Agregar al Carrito</a> 
+	</article>
+	<article id="servicio2">
+		<img src="img\aceite.avif" alt="Aceite Esencial" class="img-producto">
+		<h2>Aceite Esencial</h2>
+		<p>Extractos puros de aromaterapia para revitalización, masajes y fortalecimiento capilar sin químicos sintéticos.</p>
+		<p class="precio-prod">$25.000 COP</p>
+		<div class="selector-cantidad">
+			<label for="cant-aceite">Cantidad:</label>
+			<input type="number" id="cant-aceite" value="1" min="1" max="99">
+		</div>
+		<a href="javascript:void(0)" onclick="agregarAlCarrito('Aceite Esencial', 25000, 'cant-aceite')">Agregar al Carrito</a> 
+	</article>
+	<article id="servicio3">
+		<img src="img\crema.avif" alt="Crema Hidratante" class="img-producto">
+		<h2>Crema Hidratante</h2>
+		<p>Fórmula nutritiva con aloe vera y manteca de karité que proporciona hidratación profunda para el rostro y cuerpo.</p>
+		<p class="precio-prod">$30.000 COP</p>
+		<div class="selector-cantidad">
+			<label for="cant-crema">Cantidad:</label>
+			<input type="number" id="cant-crema" value="1" min="1" max="99">
+		</div>
+		<a href="javascript:void(0)" onclick="agregarAlCarrito('Crema Hidratante', 30000, 'cant-crema')">Agregar al Carrito</a> 
+	</article>
+</section>
+
+<!-- Carrito Desplegable Lateral (Side Drawer) -->
+<div id="cart-drawer-overlay" class="drawer-overlay" onclick="toggleCarrito()"></div>
+<aside id="cart-drawer" class="cart-drawer">
+	<div class="drawer-header">
+		<h2><i class="fa fa-shopping-cart"></i> Tu Carrito</h2>
+		<span class="cerrar-drawer" onclick="toggleCarrito()">&times;</span>
+	</div>
+	<div id="cart-items" class="drawer-content">
+		<p class="cart-empty">El carrito está vacío.</p>
+	</div>
+	<div class="drawer-footer">
+		<div class="total-row">
+			<span>Total:</span>
+			<span id="cart-total">$0 COP</span>
+		</div>
+		<button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar Carrito</button>
+		<button class="btn-pagar" onclick="abrirFormularioCheckout()">Finalizar Compra</button>
+	</div>
+</aside>
+
+<!-- Formulario Modal de Envío/Contacto -->
+<div id="modal-checkout" class="modal-backdrop">
+	<div class="modal-contenido">
+		<span class="cerrar-modal" onclick="cerrarFormularioCheckout()">&times;</span>
+		<h2>Datos de Envío</h2>
+		<p>Por favor, ingresa tu información para gestionar tu pedido:</p>
+		
+		<form id="form-envio" onsubmit="confirmarPedido(event)">
+			<div class="campo-grupo">
+				<label for="nombre">Nombre Completo *</label>
+				<input type="text" id="nombre" required placeholder="Ej. Ana Pérez">
+			</div>
+
+			<div class="campo-grupo">
+				<label for="email">Correo Electrónico *</label>
+				<input type="email" id="email" required placeholder="ejemplo@correo.com">
+			</div>
+
+			<div class="campo-grupo">
+				<label for="telefono">Número de Teléfono *</label>
+				<input type="tel" id="telefono" required placeholder="Ej. 300 123 4567">
+			</div>
+
+			<div class="campo-grupo">
+				<label for="direccion">Dirección de Entrega *</label>
+				<input type="text" id="direccion" required placeholder="Ej. Calle 10 # 45 - 20, Apto 301">
+			</div>
+
+			<div class="acciones-form">
+				<button type="button" class="btn-cancelar" onclick="cerrarFormularioCheckout()">Cancelar</button>
+				<button type="submit" class="btn-confirmar">Confirmar y Enviar Pedido</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<footer id="contacto">
+	<a href="https://facebook.com" class="fa fa-facebook" target="_blank"></a> 
+	<a href="https://twitter.com" class="fa fa-twitter" target="_blank"></a>
+	<br/><br/>
+	<p>© NATIVA - 2026 | DESIGN BY NATIVA BRAND.</p>
+</footer>
+
+</section>
+
+<!-- Script Funcional de Carrito Desplegable y Cantidades -->
+<script>
+let carrito = [];
+
+function toggleCarrito() {
+  const drawer = document.getElementById('cart-drawer');
+  const overlay = document.getElementById('cart-drawer-overlay');
+  drawer.classList.toggle('open');
+  overlay.classList.toggle('open');
+}
+
+function agregarAlCarrito(nombre, precio, inputId) {
+  const inputCant = document.getElementById(inputId);
+  const cantidadAgregar = parseInt(inputCant.value) || 1;
+
+  if (cantidadAgregar <= 0) return;
+
+  const itemExistente = carrito.find(item => item.nombre === nombre);
+  if (itemExistente) {
+    itemExistente.cantidad += cantidadAgregar;
+  } else {
+    carrito.push({ nombre, precio, cantidad: cantidadAgregar });
+  }
+
+  inputCant.value = 1;
+  actualizarCarrito();
+  
+  const drawer = document.getElementById('cart-drawer');
+  const overlay = document.getElementById('cart-drawer-overlay');
+  if (!drawer.classList.contains('open')) {
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+  }
+}
+
+function eliminarDelCarrito(index) {
+  carrito.splice(index, 1);
+  actualizarCarrito();
+}
+
+function vaciarCarrito() {
+  carrito = [];
+  actualizarCarrito();
+}
+
+function abrirFormularioCheckout() {
+  if (carrito.length === 0) {
+    alert('Tu carrito está vacío. Añade productos antes de finalizar tu compra.');
+    return;
+  }
+  toggleCarrito();
+  document.getElementById('modal-checkout').style.display = 'flex';
+}
+
+function cerrarFormularioCheckout() {
+  document.getElementById('modal-checkout').style.display = 'none';
+}
+
+function confirmarPedido(event) {
+  event.preventDefault();
+  
+  const nombre = document.getElementById('nombre').value;
+  const direccion = document.getElementById('direccion').value;
+
+  alert(`¡Gracias por tu compra, ${nombre}!\nTu pedido será enviado a: ${direccion}.`);
+  
+  cerrarFormularioCheckout();
+  document.getElementById('form-envio').reset();
+  vaciarCarrito();
+}
+
+function actualizarCarrito() {
+  const cartItemsContainer = document.getElementById('cart-items');
+  const cartCount = document.getElementById('cart-count');
+  const cartTotal = document.getElementById('cart-total');
+
+  let totalItems = 0;
+  let totalPrecio = 0;
+
+  if (carrito.length === 0) {
+    cartItemsContainer.innerHTML = '<p class="cart-empty">El carrito está vacío.</p>';
+  } else {
+    let html = '<ul class="cart-list">';
+    carrito.forEach((item, index) => {
+      const subtotal = item.precio * item.cantidad;
+      totalItems += item.cantidad;
+      totalPrecio += subtotal;
+      html += `
+        <li class="cart-item">
+          <div>
+            <strong>${item.nombre}</strong><br>
+            <small>$${item.precio.toLocaleString('es-CO')} x ${item.cantidad}</small>
+          </div>
+          <div>
+            <span>$${subtotal.toLocaleString('es-CO')} COP</span>
+            <button class="btn-eliminar" onclick="eliminarDelCarrito(${index})">&times;</button>
+          </div>
+        </li>
+      `;
+    });
+    html += '</ul>';
+    cartItemsContainer.innerHTML = html;
+  }
+
+  cartCount.textContent = totalItems;
+  cartTotal.textContent = `$${totalPrecio.toLocaleString('es-CO')} COP`;
+}
+</script>
+
+</body>
+</html>

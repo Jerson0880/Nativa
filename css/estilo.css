@@ -1,0 +1,538 @@
+/* ==========================================================================
+   ESTILOS ADAPTADOS - MANUAL DE MARCA NATIVA CON CARRITO LATERAL
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --color-primario: #2D5A27;
+  --color-secundario: #8C5A32;
+  --color-fondo: #F4F6F3;
+  --color-texto: #1F291E;
+  --color-blanco: #FFFFFF;
+  --fuente-principal: 'Montserrat', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fuente-principal);
+  font-weight: 700;
+  color: var(--color-primario);
+  margin-bottom: 1rem;
+}
+
+#contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--color-blanco);
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Header */
+header {
+  background-color: var(--color-blanco);
+  border-bottom: 3px solid var(--color-primario);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--color-texto);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--color-secundario);
+}
+
+.btn-carrito-nav {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: var(--fuente-principal);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-carrito-nav:hover {
+  background-color: var(--color-secundario);
+}
+
+/* Banner */
+#banner {
+  width: 100%;
+}
+
+#promo1 {
+  position: relative;
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  padding: 4rem 2rem;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#promo1 h1 {
+  color: var(--color-blanco);
+  font-size: 2.8rem;
+  line-height: 1.2;
+  position: relative;
+  z-index: 2;
+}
+
+#promo1 a {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--color-blanco);
+  border-radius: 4px;
+  font-family: var(--fuente-principal);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  width: fit-content;
+  position: relative;
+  z-index: 2;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#promo1 a:hover {
+  background-color: var(--color-secundario);
+  border-color: var(--color-secundario);
+}
+
+#promo1 img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+/* Productos */
+#servicios {
+  display: flex;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#servicios article {
+  flex: 1;
+  background-color: var(--color-blanco);
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  text-align: center;
+  padding: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#servicios .img-producto {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+#servicios h2 {
+  margin-top: 0.5rem;
+  font-size: 1.4rem;
+  padding: 0 1rem;
+}
+
+#servicios p {
+  color: var(--color-texto);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  padding: 0 1rem;
+  flex-grow: 1;
+}
+
+#servicios .precio-prod {
+  font-weight: 700;
+  color: var(--color-secundario);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.selector-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.selector-cantidad label {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.selector-cantidad input {
+  width: 55px;
+  padding: 0.3rem;
+  text-align: center;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  font-family: var(--fuente-principal);
+  font-weight: bold;
+}
+
+#servicios a {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--fuente-principal);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+#servicios a:hover {
+  background-color: var(--color-secundario);
+}
+
+/* CARRITO LATERAL (SIDE DRAWER) */
+.drawer-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+.drawer-overlay.open {
+  display: block;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 350px;
+  height: 100%;
+  background-color: var(--color-blanco);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer-header h2 {
+  color: var(--color-blanco);
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.cerrar-drawer {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--color-blanco);
+}
+
+.drawer-content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.cart-empty {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  margin-top: 2rem;
+}
+
+.cart-list {
+  list-style: none;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.btn-eliminar {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.drawer-footer {
+  padding: 1.2rem;
+  border-top: 2px solid var(--color-primario);
+  background-color: var(--color-fondo);
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--color-primario);
+}
+
+.drawer-footer button {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.btn-vaciar {
+  background-color: #8C5A32;
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-pagar {
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-pagar:hover {
+  background-color: var(--color-secundario);
+}
+
+/* MODAL FORMULARIO */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  background-color: var(--color-blanco);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #777;
+}
+
+.cerrar-modal:hover {
+  color: var(--color-secundario);
+}
+
+.campo-grupo {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.campo-grupo label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--color-texto);
+}
+
+.campo-grupo input {
+  padding: 0.75rem;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  font-family: var(--fuente-principal);
+  font-size: 0.95rem;
+}
+
+.campo-grupo input:focus {
+  outline: none;
+  border-color: var(--color-primario);
+}
+
+.acciones-form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-cancelar {
+  background-color: #777;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-confirmar {
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-confirmar:hover {
+  background-color: var(--color-secundario);
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+
+footer .fa {
+  color: var(--color-blanco);
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer .fa:hover {
+  color: var(--color-secundario);
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: var(--color-blanco);
+}
+/* ==========================================================================
+   ANIMACIÓN Y EFECTOS HOVER PARA PRODUCTOS
+   ========================================================================== */
+
+#servicios article {
+  flex: 1;
+  background-color: var(--color-blanco);
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  text-align: center;
+  padding: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Transición suave para la elevación y sombra */
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+              border-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Efecto al pasar el cursor sobre la tarjeta */
+#servicios article:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(45, 90, 39, 0.15);
+  border-color: var(--color-primario);
+}
+
+/* Contenedor de la imagen y efecto Zoom */
+#servicios .img-producto {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  
+  /* Transición suave para el zoom de la imagen */
+  transition: transform 0.5s ease;
+}
+
+#servicios article:hover .img-producto {
+  transform: scale(1.06);
+}
